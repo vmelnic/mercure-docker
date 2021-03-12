@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+.env
+docker/caddy/volumes/config/caddy
+docker/caddy/volumes/data/
+!docker/caddy/volumes/data/.gitkeep
