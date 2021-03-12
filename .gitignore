@@ -2,5 +2,6 @@
 .DS_Store
 .env
 docker/caddy/volumes/config/caddy
-docker/caddy/volumes/data/
+docker/caddy/volumes/data/caddy
+docker/caddy/volumes/data/mercure.db
 !docker/caddy/volumes/data/.gitkeep
