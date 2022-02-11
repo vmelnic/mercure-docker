@@ -28,5 +28,9 @@ services:
         volumes:
             - ./docker/caddy/volumes/data:/data
             - ./docker/caddy/volumes/config:/config
+        logging:
+            options:
+                max-size: "10m"
+                max-file: "5"
         networks:
             - 'docker-network'
