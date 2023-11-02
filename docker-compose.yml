@@ -16,18 +16,20 @@ services:
         build:
             context: './docker/caddy'
         environment:
-            - MERCURE_PUBLISHER_JWT_KEY=${MERCURE_PUBLISHER_JWT_KEY}
-            - MERCURE_SUBSCRIBER_JWT_KEY=${MERCURE_SUBSCRIBER_JWT_KEY}
-            - DEBUG=${MERCURE_DEBUG}
             - SERVER_NAME=${MERCURE_SERVER_NAME}
+            - DEBUG=${MERCURE_DEBUG}
+            - MERCURE_PUBLISHER_JWT_KEY=${MERCURE_PUBLISHER_JWT_KEY}
+            - MERCURE_PUBLISHER_JWT_ALG=${MERCURE_PUBLISHER_JWT_ALG}
+            - MERCURE_SUBSCRIBER_JWT_KEY=${MERCURE_SUBSCRIBER_JWT_KEY}
+            - MERCURE_SUBSCRIBER_JWT_ALG=${MERCURE_SUBSCRIBER_JWT_ALG}
             - MERCURE_EXTRA_DIRECTIVES=${MERCURE_EXTRA_DIRECTIVES}
-        command: /usr/bin/caddy run -config /config/Caddyfile.dev
+        command: /usr/bin/caddy run --config /config/Caddyfile
         ports:
             - ${HTTP_PORT}:80
             - ${HTTPS_PORT}:443
         volumes:
-            - ./docker/caddy/volumes/data:/data
             - ./docker/caddy/volumes/config:/config
+            - ./docker/caddy/volumes/data:/data
         logging:
             options:
                 max-size: "10m"
