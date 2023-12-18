@@ -29,3 +29,27 @@ Exposed ports:
 * HTTPS - 1338
 
 More details related to configurations, available here https://mercure.rocks/docs
+
+## Integration
+
+Navigate to https://jwt.io/ and use the HS256 algorithm.
+
+Header
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+Payload
+```json
+{
+   "mercure": {
+      "subscribe":["*"],
+      "publish":["*"]      
+   }
+}
+```
+
+Insert your signature and generate the JWT token.
